@@ -1,0 +1,20 @@
+<br>
+<br>
+
+<mat-card class="form-card">
+    <form [formGroup]="otpForm" (ngSubmit)="validateOTP()">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter the OTP</mat-label>
+                <input autocomplete="off" formControlName="otpValue" type="text" matInput placeholder="OTP">
+            </mat-form-field>
+        </p>
+       
+
+        <button mat-raised-button color="primary">Submit</button>
+    </form>
+</mat-card>
+
+<div class="progressIndicator" [style.display]="isProgressVisible ? 'inline' : 'none' ">
+    <mat-progress-spinner class=" example-margin" color="primary" mode="indeterminate"></mat-progress-spinner>
+</div>

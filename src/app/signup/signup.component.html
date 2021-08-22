@@ -1,0 +1,37 @@
+<br>
+<br>
+
+<mat-card class="form-card">
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input autocomplete="off" formControlName="displayName" type="text" matInput placeholder="Display Name">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-select formControlName="isdCodes">
+                  <mat-option *ngFor="let code of isdCodelist" [value]="code.dial_code">
+                    {{ code.name + " " + code.dial_code}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone number</mat-label>
+                <input formControlName="phone" type="number" matInput placeholder="Phone">
+            </mat-form-field>
+        </p>
+        
+        <div *ngIf="firebaseErrorMessage != ''" class="error-style">
+            <span>{{ firebaseErrorMessage }}</span>
+        </div>
+
+        <button mat-raised-button color="primary">Sign up</button>
+        <a href="/home">Skip</a>
+    </form>
+</mat-card>
+
+<div class="progressIndicator" [style.display]="isProgressVisible ? 'inline' : 'none' ">
+    <mat-progress-spinner class=" example-margin" color="primary" mode="indeterminate"></mat-progress-spinner>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "testapp-c07dd": {
+      "hosting": {
+        "twilio-send": [
+          "testapp-c07dd"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "testapp-c07dd"
+  }
+}
